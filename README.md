@@ -41,3 +41,5 @@ No form, booking, contact details, analytics integration, property specification
 Build output is `.output/public` and `.output/server/wrangler.json`. The dedicated Cloudflare Worker is `krelyvo-demo-meridian`; the custom domain is `demo-meridian.krelyvo.com`. The repository is `Raja6559/meridian-residences`.
 
 For Cloudflare GitHub Builds, use `main`, root `/`, build command `bun run build`, deploy command `npx wrangler deploy --config .output/server/wrangler.json`, and build environment variable `BUN_VERSION=1.4.2`. Disable preview builds for this public concept. Confirm an automatic build after a new push before treating Git deployment as verified. Keep the concept noindexed. No homepage preview section is included.
+
+First public deployment completed on 2026-10-13 with Wrangler. GitHub source is pushed. The Cloudflare GitHub build connection still needs the Cloudflare app to gain access to this new repository and a production build connection on the Worker. Until that is configured and a fresh push succeeds, updates require an explicit Wrangler deployment.

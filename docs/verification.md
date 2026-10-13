@@ -20,7 +20,8 @@ Six large 1280px WebP assets range from 68 to 124 KiB. Small 640px variants rang
 
 - The first image test incorrectly required hidden desktop-only lazy images to load on mobile. It now visits and validates every visible image; hidden redundant stage images may remain unloaded.
 - Generic Vite preview expected dist/server/server.js, while this established Nitro build writes .output/server. The preview script now runs Wrangler 4.149.0 locally against the generated Worker config. All 13 checks pass using that runtime.
+- On the public Cloudflare URL, the platform injects a `/cdn-cgi/rum` performance beacon. The no-submission test excludes only that exact infrastructure endpoint; all other non-GET requests still fail the test. This beacon is not an application enquiry or personal-data form.
 
-## Remaining scope
+## Task 4 public verification
 
-Public deployment, HTTPS/custom domain, GitHub connection and linking the existing case study are later publishing work. This task created no remote repository and changed no live site. The main Krelyvo website remained clean on git status.
+Public deployment, HTTPS/custom domain, GitHub repository and the live case-study link were completed on 2026-10-13. The public suite passed 13/13 after excluding only Cloudflare’s injected RUM endpoint from the no-application-submission assertion. Cloudflare GitHub auto-build connection remains pending; see publishing.md.

@@ -4,7 +4,10 @@ async function open(page: Page) { await page.goto('/'); await expect(page.getByR
 
 test('viewing preview traps focus, restores it and sends no submissions', async ({ page }) => {
   const writes: string[] = [];
-  page.on('request', r => { if (!['GET','HEAD'].includes(r.method())) writes.push(r.url()); });
+  page.on('request', r => {
+    const infrastructureBeacon = new URL(r.url()).pathname === '/cdn-cgi/rum';
+    if (!['GET','HEAD'].includes(r.method()) && !infrastructureBeacon) writes.push(r.url());
+  });
   await open(page);
   const trigger = page.getByRole('button', { name: 'Preview a viewing' }).first();
   await trigger.click();
