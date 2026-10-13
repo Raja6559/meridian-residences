@@ -1,0 +1,43 @@
+{
+  "name": "krelyvo-demo-meridian",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "bun node_modules/vite/bin/vite.js dev --host 127.0.0.1 --port 8086 --strictPort",
+    "build": "bun node_modules/vite/bin/vite.js build",
+    "preview": "bun x wrangler@4.149.0 dev --local --config .output/server/wrangler.json --ip 127.0.0.1 --port 8087",
+    "typecheck": "bun node_modules/typescript/bin/tsc --noEmit",
+    "test": "bun node_modules/@playwright/test/cli.js test",
+    "images": "bun scripts/prepare-images.ts"
+  },
+  "overrides": { "rolldown": "1.2.1" },
+  "dependencies": {
+    "@fontsource/sora": "^5.2.0",
+    "@fontsource/inter": "^5.2.0",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@tailwindcss/vite": "^4.2.1",
+    "@tanstack/react-router": "1.170.41",
+    "@tanstack/react-start": "1.168.60",
+    "@tanstack/router-plugin": "1.168.42",
+    "gsap": "^3.15.0",
+    "lucide-react": "^0.575.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.2.1",
+    "vite-tsconfig-paths": "^6.0.2"
+  },
+  "devDependencies": {
+    "@lovable.dev/vite-tanstack-config": "2.25.3",
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^22.16.5",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "nitro": "3.0.260603-beta",
+    "sharp": "^0.34.0",
+    "typescript": "^5.8.3",
+    "vite": "8.1.5"
+  }
+}
