@@ -20,3 +20,5 @@ Build settings:
 - Preview builds: disabled
 
 Push a fresh documentation-only commit after connection and confirm a successful `Workers Builds: krelyvo-demo-meridian` check. A GitHub push alone currently does not update the live Worker. Do not claim automatic deployment is verified until this check succeeds.
+
+2026-10-13: Raja confirmed the connection settings were saved. This documentation change is the first fresh push to test whether the Cloudflare build starts and completes automatically.
