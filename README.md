@@ -36,8 +36,8 @@ The tests use installed Google Chrome via Playwright. `bun run images` regenerat
 
 No form, booking, contact details, analytics integration, property specifications or personal data collection. The viewing journey is illustrative. Supporting interiors do not claim to be verified rooms of a real development. The gallery labels generated imagery. Content remains readable without animations; mobile and reduced-motion layouts do not use sticky choreography.
 
-## Later publishing task
+## Publishing
 
-This repository is local only until publishing is separately requested. Build output is `.output/public` and `.output/server/wrangler.json`. The Worker configuration has a distinct provisional name, `krelyvo-demo-meridian`, with no domain route yet.
+Build output is `.output/public` and `.output/server/wrangler.json`. The dedicated Cloudflare Worker is `krelyvo-demo-meridian`; the custom domain is `demo-meridian.krelyvo.com`. The repository is `Raja6559/meridian-residences`.
 
-The planned domain is `demo-meridian.krelyvo.com`. In Cloudflare Builds, use `BUN_VERSION=1.4.2`, build command `bun run build`, and deploy command `npx wrangler deploy --config .output/server/wrangler.json`. Verify public HTTPS, noindex and interactions before linking the existing Krelyvo case study. No homepage preview section is included.
+For Cloudflare GitHub Builds, use `main`, root `/`, build command `bun run build`, deploy command `npx wrangler deploy --config .output/server/wrangler.json`, and build environment variable `BUN_VERSION=1.4.2`. Disable preview builds for this public concept. Confirm an automatic build after a new push before treating Git deployment as verified. Keep the concept noindexed. No homepage preview section is included.
