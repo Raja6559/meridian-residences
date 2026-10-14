@@ -24,3 +24,6 @@ Push a fresh documentation-only commit after connection and confirm a successful
 2026-10-13: Raja confirmed the connection settings were saved. This documentation change is the first fresh push to test whether the Cloudflare build starts and completes automatically.
 
 2026-10-14: The first trigger commit had no GitHub build check and created no new Worker version. Raja confirmed the repository is visible in the Worker connection settings. A second documentation-only push now tests the saved connection after that confirmation.
+
+2026-10-14: The GitHub connection triggered a production build, but Cloudflare selected Bun 1.2.15 and could not parse the Bun 1.4 lockfile. Raja set BUN_VERSION=1.4.2 under Builds → Build variables and secrets. This commit tests the corrected build environment.
+
