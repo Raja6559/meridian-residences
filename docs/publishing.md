@@ -8,22 +8,14 @@
 - Public browser suite: 13/13 passed across interactions, 320–1440px layouts, reduced motion, no-JavaScript content, 404 and safe links.
 - Existing Krelyvo Meridian case study links to the demo after website commit `ead5cb5`; Cloudflare website build succeeded and public HTML contains the demo link and updated scope text.
 
-## Automatic deployment connection still to complete
+## Automatic deployment verified — 2026-10-24
 
-The Cloudflare GitHub app previously had selected-repository access. Add `Raja6559/meridian-residences` without removing existing repositories in GitHub’s Cloudflare installation settings. Then open the `krelyvo-demo-meridian` Worker settings in Cloudflare and connect the new repository to production branch `main`, repository root `/`.
+- GitHub production connection: `Raja6559/meridian-residences`, branch `main`.
+- Build command: `bun run build`.
+- Deploy command: `npx wrangler deploy --config .output/server/wrangler.json`.
+- Build variable: `BUN_VERSION=1.4.2` under Cloudflare Builds settings. The first automatic attempt used Bun 1.2.15 and failed to parse `bun.lock` version 2.
+- GitHub check for commit `640beab`: `Workers Builds: krelyvo-demo-meridian` succeeded.
+- Cloudflare deployed version `d8a67236-65b4-4ff6-80f4-b4f87c90d5f9` on 2026-10-24, replacing the initial manual version.
+- After deployment, the public page and `/images/exterior-1280.webp` returned HTTP 200. The title, fictional concept notice, and `noindex` metadata were present.
 
-Build settings:
-
-- Build command: `bun run build`
-- Deploy command: `npx wrangler deploy --config .output/server/wrangler.json`
-- Build variable: `BUN_VERSION=1.4.2`
-- Preview builds: disabled
-
-Push a fresh documentation-only commit after connection and confirm a successful `Workers Builds: krelyvo-demo-meridian` check. A GitHub push alone currently does not update the live Worker. Do not claim automatic deployment is verified until this check succeeds.
-
-2026-10-13: Raja confirmed the connection settings were saved. This documentation change is the first fresh push to test whether the Cloudflare build starts and completes automatically.
-
-2026-10-14: The first trigger commit had no GitHub build check and created no new Worker version. Raja confirmed the repository is visible in the Worker connection settings. A second documentation-only push now tests the saved connection after that confirmation.
-
-2026-10-14: The GitHub connection triggered a production build, but Cloudflare selected Bun 1.2.15 and could not parse the Bun 1.4 lockfile. Raja set BUN_VERSION=1.4.2 under Builds → Build variables and secrets. This commit tests the corrected build environment.
-
+Future pushes to `main` trigger the connected Cloudflare production build.
